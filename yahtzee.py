@@ -1,10 +1,11 @@
+'''Yahtzee is a dice game where players roll five 6-sided dice to try to make different combinations of numbers.'''
 import random
 
-# Function to roll the dice
+'''Function to roll the dice'''
 def roll_dice():
     return [random.randint(1, 6) for _ in range(5)]
 
-# Function to calculate the score for a given dice combination
+'''Function to calculate the score for a given dice combination'''
 def calculate_score(dice):
     score = 0
     for i in range(1, 7):
@@ -12,7 +13,7 @@ def calculate_score(dice):
         score += count * i
     return score
 
-# Function to play the game
+'''Function to play the game'''
 def play_yahtzee(num_players):
     players = []
     for i in range(num_players):
@@ -21,8 +22,8 @@ def play_yahtzee(num_players):
             'score': 0
         })
 
-    for round in range(13):
-        print(f'Round {round+1}:')
+    for turn in range(13):
+        print(f'Round {turn+1}:')
         for player in players:
             print(f"{player['name']}, it's your turn.")
             input("Press Enter to roll the dice...")
@@ -39,7 +40,7 @@ def play_yahtzee(num_players):
     for player in players:
         print(f"{player['name']}: {player['score']}")
 
-# Main program
+'''Main program'''
 if __name__ == "__main__":
-    num_players = int(input("Enter the number of players (1-4): "))
-    play_yahtzee(num_players)
+    num_of_players = int(input("Enter the number of players (1-4): "))
+    play_yahtzee(num_of_players)
